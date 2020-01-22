@@ -259,6 +259,7 @@ class unsupervised_learning(object):
         if norm:
             adj = graph_preprocessing.preprocess_graph(adj)
             
+            
         return {
             'adj_orig_sp' : adj_orig,
             'adj':adj.toarray(),
@@ -356,23 +357,3 @@ class semi_supervised_learning(object):
         print(features.shape)
 
         return adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
