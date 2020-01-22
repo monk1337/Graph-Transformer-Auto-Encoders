@@ -130,12 +130,16 @@ class Core_layers(object):
     def InnerProductDecoder(node_features, dropout = 0., act= tf.nn.sigmoid):
         """Decoder model layer for link prediction."""
         "Adjacency matrix Reconstruction"
-        node_features = tf.nn.dropout(node_features, 1-self.dropout)
+        node_features = tf.nn.dropout(node_features, 1-dropout)
         x = tf.transpose(node_features)
         x = tf.matmul(node_features, x)
         x = tf.reshape(x, [-1])
-        adj_reconstruction = self.act(x)
+        adj_reconstruction = act(x)
         return adj_reconstruction
+
+    
+
+    
 
     
     
